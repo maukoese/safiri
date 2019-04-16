@@ -6,6 +6,9 @@ Download and extract or clone this repo to a directory on your device.
 
 cd into the directory and execute `composer install`
 
+### Database
+This test copy of the app uses a local SQLite database, found in `database/safiri.db` and can therefore run independent of MySQL/MongoDB.
+
 ## Running
 You can use PHP's inbuilt server to run the project. In the project directory, open a terminal and type `php artisan serve`
-You should be able to view the site in a browser on `htt://localhost:8000
+You should be able to view the site in a browser on `http://localhost:8000`
