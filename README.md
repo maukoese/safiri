@@ -7,7 +7,7 @@ Download and extract or clone this repo to a directory on your device.
 cd into the directory and execute `composer install`
 
 ### Database
-Create a database called safiri and import sample data from `safiri.sql`. Change DB_DATABASE, DB_USERNAME and DB_PASSWORD in the `'env` file to match your server configutation.
+Create a MySQL/MariaDB database called safiri and import sample data from `safiri.sql`. Change DB_DATABASE, DB_USERNAME and DB_PASSWORD in the `'env` file to match your server configutation.
 
 You can create new users by going to `http://localhost:8000/register` and creating a new account.
 
