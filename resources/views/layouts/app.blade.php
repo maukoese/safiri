@@ -678,7 +678,7 @@
                     <a href="{{url('account/bookmarks')}}">Bookmarks</a>
                   </li>
                   <li>
-                    <a href="{{ route('logout') }}" class="btn btn-warning btn-logout btn-sm btn-block btn-rounded has-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-logout"></i> {{ __('Logout') }} </a>
+                    <a href="{{ route('logout') }}" class="has-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-logout"></i> {{ __('Logout') }} </a>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

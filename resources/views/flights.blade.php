@@ -11,7 +11,7 @@
           <div class="_pb-50 _pt-100 _pv-mob-50">
             <div class="theme-search-area _mob-h theme-search-area-white">
               <div class="theme-search-area-header _mb-20">
-                <h1 class="theme-search-area-title theme-search-area-title-sm">{{count($flights)}} Flights to {{app('request')->query('dest', 'London')}}</h1>
+                <h1 class="theme-search-area-title theme-search-area-title-sm">@if(app('request')->query('dest')) {{count($flights)}} Flights to {{app('request')->query('dest', 'London')}} @else {{count($flights)}} Flights Found @endif</h1>
               </div>
               <form class="theme-search-area-form" id="hero-search-form" action="{{url('flights')}}">
                 <div class="row" data-gutter="10">
@@ -593,10 +593,10 @@
             @if(!Auth::check())
             <div class="theme-search-results-sign-in _mob-h bg-grad">
               <i class="theme-search-results-sign-in-icon fa fa-unlock-alt"></i>
-              <h5 class="theme-search-results-sign-in-title">Sign in to unlock our secret delas. Save up to
+              <h5 class="theme-search-results-sign-in-title">Sign in to unlock awesome offers and deals. Save up to
                 <b>50%</b>
               </h5>
-              <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" href="#">Sign in now</a>
+              <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" href="{{route('login')}}">Sign in now</a>
             </div>
             @endif
             @if(!empty($flights))

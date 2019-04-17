@@ -207,35 +207,6 @@
                     </div>
                   </div>
                 </div>
-                <div class="theme-account-preferences-item">
-                  <div class="row">
-                    <div class="col-md-3 ">
-                      <h5 class="theme-account-preferences-item-title">Temperature</h5>
-                    </div>
-                    <div class="col-md-7 ">
-                      <p class="theme-account-preferences-item-value">Celsius</p>
-                      <div class="collapse" id="ChangeTemp">
-                        <div class="theme-account-preferences-item-change">
-                          <div class="form-group theme-account-preferences-item-change-form">
-                            <select class="form-control">
-                              <option>Celsius</option>
-                              <option>Fahrenheit</option>
-                            </select>
-                          </div>
-                          <div class="theme-account-preferences-item-change-actions">
-                            <a class="btn btn-sm btn-primary" href="#">Save changes</a>
-                            <a class="btn btn-sm btn-default" href="#ChangeTemp" data-toggle="collapse" aria-expanded="false" aria-controls="ChangeTemp">Cancel</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 ">
-                      <a class="theme-account-preferences-item-change-link" href="#ChangeTemp" data-toggle="collapse" aria-expanded="false" aria-controls="ChangeTemp">
-                        <i class="fa fa-pencil"></i>edit
-                      </a>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

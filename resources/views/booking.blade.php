@@ -28,9 +28,9 @@
                   <i class="theme-payment-page-signin-icon fa fa-user-circle-o"></i>
                   <div class="theme-payment-page-signin-body">
                     <h4 class="theme-payment-page-signin-title">Sign in if you have an account</h4>
-                    <p class="theme-payment-page-signin-subtitle">We will retrieve saved travelers and credit cards for faster checkout</p>
+                    <p class="theme-payment-page-signin-subtitle">If you do not have an account, one will be created for you once you complete checkout.</p>
                   </div>
-                  <a class="btn theme-payment-page-signin-btn btn-primary" href="#">Sign in</a>
+                  <a class="btn theme-payment-page-signin-btn btn-primary" href="{{route('login')}}">Sign in</a>
                 </div>
               </div>
               @endif

@@ -21,7 +21,7 @@ class FlightController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
 
         $flight = new Flight();
         $columns =  $flight->getFillable();

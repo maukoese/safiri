@@ -56,9 +56,8 @@
                   <tr>
                     <th></th>
                     <th>Name</th>
-                    <th>Location</th>
                     <th>Date</th>
-                    <th>Price</th>
+                    <th>Amount</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -68,17 +67,14 @@
                       <i class="fa fa-plane theme-account-history-type-icon"></i>
                     </td>
                     <td>
-                      <p class="theme-account-history-type-title">London &rarr; New York</p>
+                      <p class="theme-account-history-type-title">{{\App\Flight::find($booking->flight_id)->from}} &rarr; {{\App\Flight::find($booking->flight_id)->to}}</p>
                       <a class="theme-account-history-item-name" href="#">Round trip flight</a>
-                    </td>
-                    <td>
-                      <a href="#"></a>
                     </td>
                     <td class="theme-account-history-tr-date">
                       <p class="theme-account-history-date">{{$booking->created_at}}</p>
                     </td>
                     <td>
-                      <p class="theme-account-history-item-price">$236.46</p>
+                      <p class="theme-account-history-item-price">{{\App\Flight::find($booking->flight_id)->price}}</p>
                     </td>
                   </tr>
                   @endforeach

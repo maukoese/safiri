@@ -128,7 +128,7 @@
                         <i class="feature-icon feature-icon-white feature-icon-box feature-icon-round feature-icon-xs fa fa-check"></i>
                         <div class="feature-caption _c-w">
                           <h5 class="feature-title">Best prices</h5>
-                          <p class="feature-subtitle _op-04">We are comparing hundreds travel websites to find best price for you</p>
+                          <p class="feature-subtitle _op-04">We compare hundreds of travel websites to find best price for you</p>
                         </div>
                       </div>
                     </div>
@@ -136,8 +136,8 @@
                       <div class="feature">
                         <i class="feature-icon feature-icon-white feature-icon-box feature-icon-round feature-icon-xs fa fa-check"></i>
                         <div class="feature-caption _c-w">
-                          <h5 class="feature-title">27/7 Support</h5>
-                          <p class="feature-subtitle _op-04">Contact us anytime, anywhere. We will resolve any issues ASAP</p>
+                          <h5 class="feature-title">24/7 Support</h5>
+                          <p class="feature-subtitle _op-04">Get in touch anytime, anywhere to resolve any issues ASAP</p>
                         </div>
                       </div>
                     </div>
@@ -157,10 +157,10 @@
                   <a href="{{url('/')}}">Terms of Service</a>
                 </li>
                 <li>
-                  <a href="flight-index-1.html">Booking</a>
+                  <a href="{{url('/')}}">Booking</a>
                 </li>
                 <li>
-                  <a href="room-index-1.html">FAQs</a>
+                  <a href="{{url('/')}}">FAQs</a>
                 </li>
               </ul>
               <p class="theme-footer-abs-copyright">© 2018

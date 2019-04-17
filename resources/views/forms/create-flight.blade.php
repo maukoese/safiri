@@ -289,48 +289,6 @@
             </form>
           </div>
           <div class="col-md-4 ">
-            <div class="sticky-col">
-              <div class="theme-sidebar-section _mb-10">
-                <h5 class="theme-sidebar-section-title">Booking Summary</h5>
-                <ul class="theme-sidebar-section-summary-list">
-                  <li>round-trip, economy, 1 adult</li>
-                  <li>Depart: Apr 07, 2018</li>
-                  <li>Return: Apr 13, 2018</li>
-                </ul>
-              </div>
-              <div class="theme-sidebar-section _mb-10">
-                <h5 class="theme-sidebar-section-title">Charges</h5>
-                <div class="theme-sidebar-section-charges">
-                  <ul class="theme-sidebar-section-charges-list">
-                    <li class="theme-sidebar-section-charges-item">
-                      <h5 class="theme-sidebar-section-charges-item-title">1 adult</h5>
-                      <p class="theme-sidebar-section-charges-item-subtitle">Economy</p>
-                      <p class="theme-sidebar-section-charges-item-price">$615.00</p>
-                    </li>
-                    <li class="theme-sidebar-section-charges-item">
-                      <h5 class="theme-sidebar-section-charges-item-title">Taxes, Fees & Surcharges</h5>
-                      <p class="theme-sidebar-section-charges-item-subtitle"></p>
-                      <p class="theme-sidebar-section-charges-item-price">$55.00</p>
-                    </li>
-                  </ul>
-                  <p class="theme-sidebar-section-charges-total">Total
-                    <span>$670.00</span>
-                  </p>
-                </div>
-              </div>
-              <div class="theme-sidebar-section _mb-10">
-                <ul class="theme-sidebar-section-features-list">
-                  <li>
-                    <h5 class="theme-sidebar-section-features-list-title">Manage your bookings!</h5>
-                    <p class="theme-sidebar-section-features-list-body">You're in control of your booking - no registration required.</p>
-                  </li>
-                  <li>
-                    <h5 class="theme-sidebar-section-features-list-title">Customer support available 24/7 worldwide!</h5>
-                    <p class="theme-sidebar-section-features-list-body">Website and customer support in English and 41 other languages.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
