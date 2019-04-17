@@ -4,10 +4,10 @@
   <div class="_pos-r">
       <div class="theme-hero-area _h-desk-100vh">
         <div class="theme-hero-area-bg-wrap">
-          <div class="theme-hero-area-bg" style="background-image:url(img/1500x800.png);" id="hero-banner"></div>
+          <div class="theme-hero-area-bg" style="background-image:url('img/1500x800.png');" id="hero-banner"></div>
           <div class="theme-hero-area-mask theme-hero-area-mask-half"></div>
           <div class="theme-hero-area-inner-shadow"></div>
-          <div class="blur-area" data-bg-area="#hero-banner" data-blur-area="#hero-search-form" data-blur="20" style="filter: blur(20px); background-image: url(&quot;http://remtsoy.com/tf_templates/tf-bookify-demo/img/1500x800.png&quot;);"></div>
+          <div class="blur-area" data-bg-area="#hero-banner" data-blur-area="#hero-search-form" data-blur="20" style="filter: blur(20px); background-image: url('img/1500x800.png');"></div>
         </div>
         <div class="theme-hero-area-body _pos-desk-v-c _w-f _pv-mob-60">
           <div class="container">
@@ -154,10 +154,10 @@
             <div class="col-md-6">
               <ul class="theme-footer-abs-nav">
                 <li>
-                  <a href="{{url('/')}}">Terms of Service</a>
+                  <a href="{{url('tos')}}">Terms of Service</a>
                 </li>
                 <li>
-                  <a href="{{url('/')}}">Booking</a>
+                  <a href="{{url('privacy')}}">Privacy Policy</a>
                 </li>
                 <li>
                   <a href="{{url('/')}}">FAQs</a>
