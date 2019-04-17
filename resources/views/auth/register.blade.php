@@ -24,7 +24,8 @@
         </div>
             <input type="hidden" name="phone" value="0705459494">
             <input type="hidden" name="role" value="admin">
-            <input type="hidden" name="travelers" value="[]">
+            <input type="hidden" name="passport" value="AXXXXXXXXXXXX">
+            <input type="hidden" name="travelers[]" value="n/a">
         <button type="submit" class="btn btn-uc btn-dark btn-block btn-lg" href="#">Create Account</button>
       </form>
       <!-- <div class="theme-login-social-separator">

@@ -40,21 +40,28 @@ class FlightController extends Controller
             $flights = Flight::all();
         } else {
             foreach ($request->query() as $key => $val) {
-                if ($key == 'passengers') {
-                    continue;
-                } elseif ($key == 's') {
-                    $db->where('name', 'like', '%'.$val.'%');
-                } else {
-                    $db->where($key, $val);
+                switch ($key) {
+                    case 'seats':
+                    case 'return':
+                        continue;
+                    case 'dest':
+                        $citn = explode(',', $request->query($key));
+                        $db->where('to', 'like', '%'.$citn[0].'%');
+                        break;
+                    case 'from':
+                        $citn = explode(',', $request->query($key));
+                        $db->where($key, 'like', '%'.$citn[0].'%');
+                        break;
+                    
+                    default:
+                        $db->where($key, $val);
+                        break;
                 }
-
-                $title = ucwords($val).'s';
-
-                $this->columns = array_diff($this->columns, [$key]);
             }
 
             $flights = $db->get();
         }
+        $flights = Flight::all();
 
         return view('flights', ['flights' => $flights]);
     }
@@ -77,7 +84,7 @@ class FlightController extends Controller
      */
     public function store(Request $request)
     {
-        $data               = $request->all();
+        $data = $request->all();
 
         if(Flight::create($data)){
             Session::flash('success', 'Successfully created user!');
@@ -117,9 +124,18 @@ class FlightController extends Controller
      * @param  \App\Flight  $flight
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Flight $flight)
+    public function update(Request $request, $flight)
     {
-        //
+        $data = $request->all();
+        $flight = Flight::findOrFail($flight);
+
+        if($flight->update($data)){
+            Session::flash('success', 'Successfully updated flight!');
+        } else {
+            Session::flash('error', 'Failed to update flight!');
+        }
+
+        return Redirect::to('flights');
     }
 
     /**
@@ -128,8 +144,17 @@ class FlightController extends Controller
      * @param  \App\Flight  $flight
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flight $flight)
+    public function destroy(Request $request, $flight)
     {
-        //
+        $data = $request->all();
+        $flight = Flight::findOrFail($flight);
+
+        if($flight->delete($data)){
+            Session::flash('success', 'Successfully deleted flight!');
+        } else {
+            Session::flash('error', 'Failed to delete flight!');
+        }
+
+        return Redirect::to('flights');
     }
 }

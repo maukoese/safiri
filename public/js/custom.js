@@ -272,12 +272,13 @@ function BSTabsActions() {
 function datePickers() {
 
     $('.datePickerSingle').datetimepicker({
-        format: 'ddd, MMM D'
+        format: 'YYYY-MM-DD'
     });
 
 
     $('.datePickerStart').datetimepicker({
-        format: 'ddd M/D'
+        format: 'YYYY-MM-DD',
+        useCurrent: true
     }).on('dp.change', function(e){
         var parent = $($(this).parents('.row')[0]),
             endDate = parent.find('.datePickerEnd');
@@ -285,8 +286,8 @@ function datePickers() {
     });
 
     $('.datePickerEnd').datetimepicker({
-        format: 'ddd M/D',
-        useCurrent: false
+        format: 'YYYY-MM-DD',
+        useCurrent: true
     }).on('dp.change', function(e){
         var parent = $($(this).parents('.row')[0]),
             startDate = parent.find('.datePickerStart');

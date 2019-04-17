@@ -23,14 +23,13 @@ Route::get('contact', function () {
     return view('contact');
 });
 
-Route::get('pay', function () {
-    return view('pay');
-});
+Route::get('book', 'BookingController@create');
 
 Route::resources([
     'payments'          => 'PaymentController',
     'users'             => 'UserController',
-    'flights'           => 'FlightController'
+    'flights'           => 'FlightController',
+    'bookings'           => 'BookingController'
 ]);
 
 Route::prefix('account')->group(function () {
@@ -40,7 +39,7 @@ Route::prefix('account')->group(function () {
 	Route::get('/{view}', 'AccountController');
 });
 
-Route::get('pay/success', function () {
+Route::get('success', function () {
     return view('success');
 });
 

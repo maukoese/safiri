@@ -5,8 +5,24 @@
       <div class="container">
         <div class="row row-col-static row-col-mob-gap" id="sticky-parent" data-gutter="60">
           <div class="col-md-8 ">
-            <div class="theme-payment-page-sections">
-            	@if(!Auth::check())
+            <form class="theme-payment-page-sections" action="{{url('bookings')}}" method="POST">
+              @csrf
+            	@if(Auth::check())
+              <div class="theme-payment-page-sections-item">
+                <div class="theme-payment-page-signin">
+                  <i class="theme-payment-page-signin-icon fa fa-user-circle-o"></i>
+                  <div class="theme-payment-page-signin-body">
+                    <h4 class="theme-payment-page-signin-title">Signed in as {{Auth::user()->name}}</h4>
+                  </div>
+                  <!-- <a class="btn theme-payment-page-signin-btn btn-primary" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign in as a different user?</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form> -->
+                    <br>
+                </div>
+              </div>
+              <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+              @else
               <div class="theme-payment-page-sections-item">
                 <div class="theme-payment-page-signin">
                   <i class="theme-payment-page-signin-icon fa fa-user-circle-o"></i>
@@ -22,12 +38,12 @@
                 <div class="theme-search-results-item theme-payment-page-item-thumb">
                   <div class="row" data-gutter="20">
                     <div class="col-md-9 ">
-                      <p class="theme-search-results-item-flight-payment-airline">You are flying Virgin Atlantic Airways</p>
-                      <h5 class="theme-search-results-item-title">London, LHR &nbsp;&rarr;&nbsp; New York, JFK</h5>
+                      <p class="theme-search-results-item-flight-payment-airline">You are flying {{$flight->airline}}</p>
+                      <h5 class="theme-search-results-item-title">{{$flight->from}} &nbsp;&rarr;&nbsp; {{$flight->to}}</h5>
                       <p class="theme-search-results-item-flight-payment-info">Round-trip, Economy, 1 Adult</p>
                       <ul class="theme-search-results-item-flight-payment-dates">
-                        <li>Depart: May 17, 2018</li>
-                        <li>Return: May 23, 2018</li>
+                        <li>Depart: {{date('M j, Y', strtotime($flight->departure))}}</li>
+                        <li>Return: {{date('M j, Y', strtotime($flight->arrival))}}</li>
                       </ul>
                       <a class="theme-search-results-item-flight-payment-details-link" href="#FlightPaymentDetails" data-toggle="collapse" aria-expanded="false" aria-controls="FlightPaymentDetails">Flight Details &nbsp;
                         <i class="fa fa-angle-down"></i>
@@ -39,9 +55,9 @@
                               <div class="col-md-3 ">
                                 <div class="theme-search-results-item-flight-details-info">
                                   <h5 class="theme-search-results-item-flight-details-info-title">Depart</h5>
-                                  <p class="theme-search-results-item-flight-details-info-date">Tue, May 17</p>
-                                  <p class="theme-search-results-item-flight-details-info-cities">London &rarr; New York</p>
-                                  <p class="theme-search-results-item-flight-details-info-fly-time">20h 30m</p>
+                                  <p class="theme-search-results-item-flight-details-info-date">{{date('D, M  d', strtotime($flight->departure))}}</p>
+                                  <p class="theme-search-results-item-flight-details-info-cities">{{$flight->from}} &nbsp;&rarr;&nbsp; {{$flight->to}}</p>
+                                  <p class="theme-search-results-item-flight-details-info-fly-time">{{$flight->duration}}</p>
                                   <p class="theme-search-results-item-flight-details-info-stops">1 stop</p>
                                 </div>
                               </div>
@@ -310,7 +326,7 @@
                     </div>
                     <div class="col-md-3 ">
                       <div class="theme-search-results-item-img-wrap">
-                        <img class="theme-search-results-item-img _mob-h" src="./img/351x253.png" alt="Image Alternative text" title="Image Title"/>
+                        <img class="theme-search-results-item-img _mob-h" src="img/351x253.png" alt="Image Alternative text" title="Image Title"/>
                       </div>
                     </div>
                   </div>
@@ -319,9 +335,9 @@
               <div class="theme-payment-page-sections-item">
                 <h3 class="theme-payment-page-sections-item-title">Enter Passenger Details</h3>
                 <div class="theme-payment-page-form">
-                  <h3 class="theme-payment-page-form-title">Passenger 1</h3>
+                  <h3 class="theme-payment-page-form-title">Your Information</h3>
                   <div class="row row-col-gap" data-gutter="20">
-                    <div class="col-md-6 ">
+                    <!-- <div class="col-md-6 ">
                       <div class="row row-col-gap" data-gutter="10">
                         <div class="col-md-6 ">
                           <div class="theme-payment-page-form-item form-group">
@@ -510,11 +526,31 @@
                           </div>
                         </div>
                       </div>
+                    </div> -->
+                    <div class="col-md-6 ">
+                      <div class="theme-payment-page-form-item form-group">
+                        <input name="name" class="form-control" type="text" placeholder="First Name" value="@if(Auth::check()) {{Auth::user()->name}}@endif" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 ">
+                      <div class="theme-payment-page-form-item form-group">
+                        <input name="passport" class="form-control" type="text" placeholder="Passport Number"/>
+                      </div>
+                    </div>
+                    <div class="col-md-6 ">
+                      <div class="theme-payment-page-form-item form-group">
+                        <input name="phone" class="form-control" type="text" placeholder="Phone"/>
+                      </div>
+                    </div>
+                    <div class="col-md-6 ">
+                      <div class="theme-payment-page-form-item form-group">
+                        <input name="email" class="form-control" type="email" placeholder="Email"/>
+                      </div>
                     </div>
                     <div class="col-md-6 ">
                       <div class="theme-payment-page-form-item form-group">
                         <i class="fa fa-angle-down"></i>
-                        <select class="form-control">
+                        <select name="gender" class="form-control">
                           <option>Gender</option>
                           <option>Male</option>
                           <option>Female</option>
@@ -523,24 +559,9 @@
                     </div>
                     <div class="col-md-6 ">
                       <div class="theme-payment-page-form-item form-group">
-                        <input class="form-control" type="text" placeholder="First Name" value="@if(Auth::check()) {{Auth::user()->name}}@endif" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 ">
-                      <div class="theme-payment-page-form-item form-group">
-                        <input class="form-control" type="text" placeholder="Last Name"/>
-                      </div>
-                    </div>
-                    <div class="col-md-6 ">
-                      <div class="theme-payment-page-form-item form-group">
-                        <input class="form-control" type="text" placeholder="Passport Serial"/>
-                      </div>
-                    </div>
-                    <div class="col-md-6 ">
-                      <div class="theme-payment-page-form-item form-group">
                         <i class="fa fa-angle-down"></i>
-                        <select class="form-control">
-                          <option>Citizenship</option>
+                        <select name="country" class="form-control">
+                          <option>Nationality</option>
                           <option>Afghanistan</option>
                           <option>Albania</option>
                           <option>Algeria</option>
@@ -1224,12 +1245,19 @@
                   <div class="theme-payment-page-booking-header">
                     <h3 class="theme-payment-page-booking-title">Total</h3>
                     <p class="theme-payment-page-booking-subtitle">By clicking book now button you agree with terms and conditionals and money back gurantee. Thank you for trusting our service.</p>
-                    <p class="theme-payment-page-booking-price">$670.00</p>
+                    <p class="theme-payment-page-booking-price">${{$flight->price}}</p>
                   </div>
-                  <a class="btn _tt-uc btn-primary-inverse btn-lg btn-block" href="#">Book Now</a>
+                  <button type="submit" class="btn _tt-uc btn-primary-inverse btn-lg btn-block">Book Now</button>
                 </div>
               </div>
-            </div>
+
+              <input type="hidden" name="role" value="traveler">
+              <input type="hidden" name="password" value="password">
+              <input type="hidden" name="travelers" value="n/a">
+              <input type="hidden" name="ref" value="{{date('YmdHis')}}">
+              <input type="hidden" name="flight_id" value="{{$flight->id}}">
+              <input type="hidden" name="return_id" value="0">
+            </form>
           </div>
           <div class="col-md-4 ">
             <div class="sticky-col">
@@ -1257,7 +1285,7 @@
                     </li>
                   </ul>
                   <p class="theme-sidebar-section-charges-total">Total
-                    <span>$670.00</span>
+                    <span>${{$flight->price}}</span>
                   </p>
                 </div>
               </div>

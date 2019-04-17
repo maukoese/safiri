@@ -15,13 +15,13 @@ class CreateFlightsTable extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('departure');
-            $table->string('arrival');
+            $table->dateTime('departure');
+            $table->dateTime('arrival');
             $table->string('from');
             $table->string('to');
             $table->string('price');
             $table->string('duration');
-            $table->string('airline');
+            $table->string('airline_id');
             $table->json('stops');
             $table->string('class');
             $table->string('type');

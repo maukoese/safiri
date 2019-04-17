@@ -17,8 +17,9 @@ class CreateBookingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('ref');
             $table->string('flight_id');
+            $table->string('return_id')->nullable();
             $table->string('user_id');
-            $table->json('travelers');
+            $table->string('amount');
             $table->timestamps();
         });
     }

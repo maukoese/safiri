@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/styles.css')}}"/>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-inverse navbar-theme @if(app('request')->is('/'))navbar-theme-abs navbar-theme-transparent navbar-theme-border @endif" id="main-nav">
+    <nav class="navbar navbar-default navbar-theme @if(app('request')->is('account') || app('request')->is('account/*') || app('request')->is('book') || app('request')->is('success'))navbar-inverse @else navbar-theme-transparent navbar-theme-abs navbar-theme-border @endif" id="main-nav">
       <div class="container">
         <div class="navbar-inner nav">
           <div class="navbar-header">
@@ -24,7 +24,7 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{url('/')}}">
-              <img src="{{asset('img/logo.png')}}" alt="Image Alternative text" title="Image Title"/>
+              <strong>Safiri</strong>
             </a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-main">
@@ -36,7 +36,7 @@
                 <a class="dropdown-toggle" href="{{url('about')}}">About</a>
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle" href="room-index-1.html">Destinations</a>
+                <!-- <a class="dropdown-toggle" href="room-index-1.html">Destinations</a> -->
                 <div class="dropdown-menu dropdown-menu-xl">
                   <div class="row">
                     <div class="col-md-6">
@@ -697,17 +697,18 @@
       </div>
     </nav>
     @yield('content')
+    @if(!app('request')->is('/'))
     <div class="theme-footer" id="mainFooter">
       <div class="container _ph-mob-0">
         <div class="row row-eq-height row-mob-full" data-gutter="60">
           <div class="col-md-3">
             <div class="theme-footer-section theme-footer-">
               <a class="theme-footer-brand _mb-mob-30" href="#">
-                <img src="{{asset('img/logo-black.png')}}" alt="Image Alternative text" title="Image Title"/>
+                <strong>Safiri</strong>
               </a>
               <div class="theme-footer-brand-text">
-                <p>Nullam adipiscing neque non sodales aenean dui fermentum lobortis placerat elit iaculis dolor fusce magnis</p>
-                <p>Libero vel iaculis lobortis eros sociosqu luctus magnis suscipit molestie class est vestibulum nisi suscipit</p>
+                <p>Safiri is a new kind of booking platform, designed to simplify the process and free up your time.</p>
+                <p>Our light, intuitive interface will have you booked and at peace in no time.</p>
               </div>
             </div>
           </div>
@@ -847,6 +848,7 @@
         </div>
       </div>
     </div>
+    @endif
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/moment.js')}}"></script>
     <script src="{{asset('js/bootstrap.js')}}"></script>

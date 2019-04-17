@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="col-md-9-5 ">
-          <h1 class="theme-account-page-title">Prefrences</h1>
+          <h1 class="theme-account-page-title">My Account</h1>
           <div class="row">
             <div class="col-md-9 ">
               <div class="theme-account-preferences">
@@ -59,7 +59,7 @@
                       <h5 class="theme-account-preferences-item-title">Email Address</h5>
                     </div>
                     <div class="col-md-7 ">
-                      <p class="theme-account-preferences-item-value">john_doe772@gmail.com</p>
+                      <p class="theme-account-preferences-item-value">{{Auth::user()->email}}</p>
                     </div>
                   </div>
                 </div>

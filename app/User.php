@@ -37,5 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'travelers' => 'array'
     ];
+    /**
+     * Get the comments for the blog post.
+     */
+    public function bookings()
+    {
+        return $this->hasMany('App\Booking');
+    }
 
 }
